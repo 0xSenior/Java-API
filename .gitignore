@@ -1,0 +1,22 @@
+# Compiled output
+target/
+bin/
+
+# IDE settings
+.idea/
+.vscode/
+*.iml
+
+# JCEF / CEF binaries (These are large and platform-dependent)
+jcef-bundle/
+
+# Local tools
+apache-maven-*/
+maven.zip
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
