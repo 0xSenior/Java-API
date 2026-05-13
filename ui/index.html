@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Boxicons for icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Markdown and Syntax Highlighting -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Background Glow Spots -->
+        <div class="glow-spot spot-1"></div>
+        <div class="glow-spot spot-2"></div>
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <button class="new-chat-btn">
+                <i class='bx bx-plus'></i> New chat
+            </button>
+            <div class="history-list">
+                <!-- Dynamic history items will appear here -->
+            </div>
+            <div class="sidebar-footer" id="settings-btn">
+                <div class="user-profile">
+                    <div class="avatar" id="sidebar-avatar">U</div>
+                    <span>User</span>
+                </div>
+                <i class='bx bx-cog'></i>
+            </div>
+        </aside>
+        
+        <div class="resizer" id="sidebar-resizer"></div>
+
+        <!-- Main Chat Area -->
+        <main class="chat-area">
+            <div class="chat-header">
+                <button id="sidebar-toggle" class="sidebar-toggle"><i class='bx bx-menu'></i></button>
+                <h2>GPT-4</h2>
+            </div>
+            
+            <div class="chat-messages" id="chat-messages">
+                <div class="welcome-screen" id="welcome-screen">
+                    <h1>What's on your mind today?</h1>
+                    <div class="quick-actions">
+                        <button class="action-tag"><i class='bx bx-image'></i> Create an image</button>
+                        <button class="action-tag"><i class='bx bx-edit-alt'></i> Write or edit</button>
+                        <button class="action-tag"><i class='bx bx-globe'></i> Look something up</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-container">
+                <div class="input-box-wrapper">
+                    <div class="input-box">
+                        <div class="addon-left">
+                            <button class="plus-btn" id="plus-btn"><i class='bx bx-plus'></i></button>
+                            <div class="plus-menu" id="plus-menu">
+                                <div class="menu-item"><i class='bx bx-paperclip'></i> Add photos & files</div>
+                                <div class="menu-item"><i class='bx bx-image'></i> Create image</div>
+                                <div class="menu-item"><i class='bx bx-bulb'></i> Thinking</div>
+                                <div class="menu-item"><i class='bx bx-search-alt'></i> Deep research</div>
+                                <div class="menu-item"><i class='bx bx-globe'></i> Web search</div>
+                                <div class="menu-divider"></div>
+                                <div class="menu-item flex-between">More <i class='bx bx-chevron-right'></i></div>
+                                <div class="menu-divider"></div>
+                                <div class="menu-item flex-between"><div class="flex-center"><i class='bx bx-folder'></i> Projects</div> <i class='bx bx-chevron-right'></i></div>
+                            </div>
+                        </div>
+                        <textarea id="chat-input" placeholder="Ask anything" rows="1" autofocus></textarea>
+                        <div class="input-right-side">
+                            <button class="icon-btn mic-btn"><i class='bx bx-microphone'></i></button>
+                            <button id="send-btn" class="voice-btn"><i class='bx bx-stats'></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="disclaimer">AI can make mistakes. Consider verifying important information.</div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settings-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button id="close-settings-btn" class="close-modal-btn"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <h3>General (Coming Soon)</h3>
+                    <div class="setting-item">
+                        <span>Theme</span>
+                        <select disabled>
+                            <option>Dark Mode</option>
+                            <option>Light Mode</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <span>Language</span>
+                        <select disabled>
+                            <option>English</option>
+                            <option>Arabic</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="settings-section">
+                    <h3>Profile Customization</h3>
+                    <div class="setting-item">
+                        <span>Avatar Image</span>
+                        <div class="avatar-upload">
+                            <label for="avatar-input" class="upload-btn">Upload Image</label>
+                            <input type="file" id="avatar-input" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
